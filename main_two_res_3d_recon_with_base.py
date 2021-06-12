@@ -16,7 +16,7 @@ flags.DEFINE_integer("train_size", 1, "The size of train images [np.inf]")
 flags.DEFINE_integer("batch_size", 64, "The size of batch images [64]")
 flags.DEFINE_integer("sample_size", 1, "The size of batch samples images [64]")
 flags.DEFINE_integer(
-    "image_size", 108, "The size of image to use (will be center cropped) [108]")
+    "image_size", 224, "The size of image to use (will be center cropped) [108]")
 flags.DEFINE_integer(
     "output_size", 64, "The size of the output images to produce [64]")
 flags.DEFINE_integer("c_dim", 3, "Dimension of image color. [3]")
@@ -40,7 +40,7 @@ flags.DEFINE_integer("gfc_dim", 512, "")
 flags.DEFINE_integer("df_dim", 32, "")
 flags.DEFINE_integer("dfc_dim", 512, "")
 flags.DEFINE_integer("z_dim", 50, "")
-flags.DEFINE_string("gpu", "-1", "GPU to use [0]")
+flags.DEFINE_string("gpu", "0", "GPU to use [0]")
 
 flags.DEFINE_boolean("is_partbase_albedo", False,
                      "Using part based albedo decoder [False]")
@@ -87,7 +87,7 @@ def main(_):
 
             #dcgan.evaluation_LWF_recursive(folder=save_folder, data_folder='/home/luan/Documents/data/NoW_Dataset/final_release_version/iphone_pictures_cropped/', output_folder = '/home/luan/Documents/data/NoW_Dataset/final_release_version/iphone_pictures_recon/' )
             dcgan.evaluation_LWF_recursive(
-                folder=save_folder, data_folder='../../img_align_celeba', output_folder='../../img_align_celeba-out')
+                folder=save_folder, data_folder='../img_align_celeba', output_folder='../img_align_celeba-out')
 
 
 if __name__ == '__main__':
