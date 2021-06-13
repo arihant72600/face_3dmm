@@ -441,7 +441,7 @@ class DCGAN(object):
                 #save_images(s_img, [8, 8], '%s/pred_img_%02d_img.png' % (path, idx))
                 ##save_images(s_img_nc, [-1, 1], '%s_pred_img_%02d_img_nc.png' % (output_path, idx))
                 # save_images(
-                    s_m, [-1, 1], '%s_pred_img_%02d_m.png' % (output_path, idx))
+                    ##s_m, [-1, 1], '%s_pred_img_%02d_m.png' % (output_path, idx))
                 print(s_m)
                 print(s_il)
 
