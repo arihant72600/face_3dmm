@@ -87,7 +87,7 @@ def main(_):
 
             #dcgan.evaluation_LWF_recursive(folder=save_folder, data_folder='/home/luan/Documents/data/NoW_Dataset/final_release_version/iphone_pictures_cropped/', output_folder = '/home/luan/Documents/data/NoW_Dataset/final_release_version/iphone_pictures_recon/' )
             dcgan.evaluation_LWF_recursive(
-                folder=save_folder, data_folder='../img_align_celeba', output_folder='../img_align_celeba-out')
+                folder=save_folder, data_folder='../img_input_celeba', output_folder='../img_align_celeba-out')
 
 
 if __name__ == '__main__':
