@@ -7,6 +7,7 @@ from six.moves import xrange
 import numpy as np
 import tensorflow.contrib.slim as slim
 import tensorflow as tf
+from tqdm import tqdm
 from glob import glob
 from math import floor
 from random import randint
@@ -442,8 +443,8 @@ class DCGAN(object):
                 ##save_images(s_img_nc, [-1, 1], '%s_pred_img_%02d_img_nc.png' % (output_path, idx))
                 ##save_images(s_texture, [-1, 1], '%s_pred_img_%02d_tex.png' % (output_path, idx))
                 ##save_images(s_albedo_image, [-1, 1], '%s_pred_img_%02d_alb.png' % (output_path, idx))
-                save_images(
-                    s_shade_image, [-1, 1], '%s_pred_img_%02d_shade.png' % (output_path, idx))
+                # save_images(
+                #     s_shade_image, [-1, 1], '%s_pred_img_%02d_shade.png' % (output_path, idx))
                 mask = (s_shade_image - sample_images) != 0
 
                 masked_shading = mask * s_shade_image
@@ -461,10 +462,10 @@ class DCGAN(object):
 
             # Shape
 
-            np.savetxt('%s_pred_shape.txt' % (output_path),
-                       np.reshape(s_shape[0], [1, -1]))
-            np.savetxt('%s_pred_shape_base.txt' % (output_path),
-                       np.reshape(s_shape_base[0], [1, -1]))
+            # np.savetxt('%s_pred_shape.txt' % (output_path),
+            #            np.reshape(s_shape[0], [1, -1]))
+            # np.savetxt('%s_pred_shape_base.txt' % (output_path),
+            #            np.reshape(s_shape_base[0], [1, -1]))
 
         def process_path(input_path, output_path):
             if os.path.isfile(input_path):
@@ -482,7 +483,7 @@ class DCGAN(object):
                 f_list = os.listdir(input_path)
                 random.shuffle(f_list)
                 # f_list.sort(reverse=True)
-                for f in f_list:
+                for f in tqdm(f_list):
                     input_fn = os.path.join(input_path, f)
                     output_fn = os.path.join(output_path, f)
                     process_path(input_fn, output_fn)
