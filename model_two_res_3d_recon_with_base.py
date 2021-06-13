@@ -131,6 +131,7 @@ class DCGAN(object):
             tf.float32, [self.batch_size, self.ilDim], name='lighting_labels')
 
         def filename2image(input_filenames, offset_height=None, offset_width=None, target_height=None, target_width=None):
+            print('filename2image info', offset_height, offset_width, target_height, target_width)
             batch_size = len(input_filenames)
             if offset_height != None:
                 offset_height = tf.split(offset_height, batch_size)
