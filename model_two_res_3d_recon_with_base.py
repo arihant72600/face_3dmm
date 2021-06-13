@@ -450,9 +450,11 @@ class DCGAN(object):
                 save_images(
                     s_shade_image, [-1, 1], '%s_pred_img_%02d_shade.png' % (output_path, idx))
                 mask = (s_shade_image - sample_images) != 0
+
+                masked_shading = mask * s_shade_image
                 
                 save_images(
-                    s_shade_image, [-1, 1], '%s_pred_img_%02d_shade.png' % (output_path, idx))
+                    masked_shading, [-1, 1], '%s_pred_img_%02d_masked_shading.png' % (output_path, idx))
                 save_images(
                     mask, [-1, 1], '%s_pred_img_%02d_mask.png' % (output_path, idx))
 
