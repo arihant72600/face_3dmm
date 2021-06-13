@@ -436,15 +436,10 @@ class DCGAN(object):
 
             if save_img:
 
-                save_images(
-                    sample_images, [-1, 1], '%s_pred_img_%02d_in.png' % (output_path, idx))
+                # save_images(
+                    # sample_images, [-1, 1], '%s_pred_img_%02d_in.png' % (output_path, idx))
                 #save_images(s_img, [8, 8], '%s/pred_img_%02d_img.png' % (path, idx))
                 ##save_images(s_img_nc, [-1, 1], '%s_pred_img_%02d_img_nc.png' % (output_path, idx))
-                
-                print(s_shape.shape)
-                print(s_m)
-                print(s_il)
-
                 ##save_images(s_texture, [-1, 1], '%s_pred_img_%02d_tex.png' % (output_path, idx))
                 ##save_images(s_albedo_image, [-1, 1], '%s_pred_img_%02d_alb.png' % (output_path, idx))
                 save_images(
@@ -455,14 +450,14 @@ class DCGAN(object):
                 
                 save_images(
                     masked_shading, [-1, 1], '%s_pred_img_%02d_masked_shading.png' % (output_path, idx))
-                save_images(
-                    mask, [-1, 1], '%s_pred_img_%02d_mask.png' % (output_path, idx))
+                # save_images(
+                #     mask, [-1, 1], '%s_pred_img_%02d_mask.png' % (output_path, idx))
 
                 ##save_images(s_img_base_nc, [-1, 1], '%s_pred_img_%02d_img_nc_base.png' % (output_path, idx))
 
                 ##save_images(s_texture_base, [-1, 1], '%s_pred_img_%02d_tex_base.png' % (output_path, idx))
-                save_images(
-                    s_shade_base_image, [-1, 1], '%s_pred_img_%02d_shade_base.png' % (output_path, idx))
+                # save_images(
+                #     s_shade_base_image, [-1, 1], '%s_pred_img_%02d_shade_base.png' % (output_path, idx))
 
             # Shape
 
