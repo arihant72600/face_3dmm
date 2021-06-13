@@ -440,8 +440,8 @@ class DCGAN(object):
                     sample_images, [-1, 1], '%s_pred_img_%02d_in.png' % (output_path, idx))
                 #save_images(s_img, [8, 8], '%s/pred_img_%02d_img.png' % (path, idx))
                 ##save_images(s_img_nc, [-1, 1], '%s_pred_img_%02d_img_nc.png' % (output_path, idx))
-                save_images(
-                    s_shape, [-1, 1], '%s_pred_img_%02d_shape.png' % (output_path, idx))
+                
+                print(s_shape.shape)
                 print(s_m)
                 print(s_il)
 
