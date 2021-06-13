@@ -449,6 +449,12 @@ class DCGAN(object):
                 ##save_images(s_albedo_image, [-1, 1], '%s_pred_img_%02d_alb.png' % (output_path, idx))
                 save_images(
                     s_shade_image, [-1, 1], '%s_pred_img_%02d_shade.png' % (output_path, idx))
+                mask = (s_shade_image - sample_images) != 0
+                
+                save_images(
+                    s_shade_image, [-1, 1], '%s_pred_img_%02d_shade.png' % (output_path, idx))
+                save_images(
+                    mask, [-1, 1], '%s_pred_img_%02d_mask.png' % (output_path, idx))
 
                 ##save_images(s_img_base_nc, [-1, 1], '%s_pred_img_%02d_img_nc_base.png' % (output_path, idx))
 
