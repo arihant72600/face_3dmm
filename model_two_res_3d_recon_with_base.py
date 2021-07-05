@@ -283,7 +283,7 @@ class DCGAN(object):
         #self.landmark_u_labels, self.landmark_v_labels = compute_landmarks(self.m_labels_full, self.shape_labels_full, output_size=self.output_size, is_reduce = self.is_reduce)
 
         # New exp
-        self.unwarped_texture, _ = unwarp_texture(
+        self.unwarped_texture, self.test_masks = unwarp_texture(
             self.input_images_ph, self.m_full, self.shape_full, output_size=self.output_size, is_reduce=self.is_reduce)
 
         # Sampler
@@ -427,15 +427,14 @@ class DCGAN(object):
                 self.input_images, feed_dict=ffeed_dict)
 
             s_shape, s_texture, s_albedo, s_m, s_img_nc, s_albedo_image, s_shade_image, s_shape_fx, s_alb_fx, s_il, \
-                s_shape_base, s_texture_base, s_albedo_base, s_img_base_nc, s_albedo_base_image, s_shade_base_image = \
+                s_shape_base, s_texture_base, s_albedo_base, s_img_base_nc, s_albedo_base_image, s_shade_base_image, s_test_mask = \
                 self.sess.run([self.rrotated_shape, self.G_texture_images, self.albedo, self.m, self.G_images_nc, self.G_albedo_images, self.G_shade_images,  self.shape_fx, self.alb_fx, self.il,
-                               self.rrotated_shape_base, self.G_texture_base_images, self.albedo_base, self.G_images_base_nc, self.G_albedo_base_images, self.G_shade_base_images],
+                               self.rrotated_shape_base, self.G_texture_base_images, self.albedo_base, self.G_images_base_nc, self.G_albedo_base_images, self.G_shade_base_images, test_masks],
                               feed_dict={self.input_images_ph: sample_images})
 
-            print(type(s_texture), type(s_m), type(s_shape))
-            print(s_texture, s_m, s_shape)
-            warped_img, mask = warp_texture(s_texture, s_m, s_shape)
-            print(type(mask), mask.shape)
+            print(type(s_test_mask))
+            print(s_test_mask.shape)
+            print(s_test_mask)
 
             save_img = True
             idx = 0
