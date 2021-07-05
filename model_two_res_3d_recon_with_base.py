@@ -429,7 +429,7 @@ class DCGAN(object):
             s_shape, s_texture, s_albedo, s_m, s_img_nc, s_albedo_image, s_shade_image, s_shape_fx, s_alb_fx, s_il, \
                 s_shape_base, s_texture_base, s_albedo_base, s_img_base_nc, s_albedo_base_image, s_shade_base_image, s_test_mask = \
                 self.sess.run([self.rrotated_shape, self.G_texture_images, self.albedo, self.m, self.G_images_nc, self.G_albedo_images, self.G_shade_images,  self.shape_fx, self.alb_fx, self.il,
-                               self.rrotated_shape_base, self.G_texture_base_images, self.albedo_base, self.G_images_base_nc, self.G_albedo_base_images, self.G_shade_base_images, test_masks],
+                               self.rrotated_shape_base, self.G_texture_base_images, self.albedo_base, self.G_images_base_nc, self.G_albedo_base_images, self.G_shade_base_images, self.test_masks],
                               feed_dict={self.input_images_ph: sample_images})
 
             print(type(s_test_mask))
