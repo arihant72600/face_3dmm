@@ -432,6 +432,8 @@ class DCGAN(object):
                                self.rrotated_shape_base, self.G_texture_base_images, self.albedo_base, self.G_images_base_nc, self.G_albedo_base_images, self.G_shade_base_images],
                               feed_dict={self.input_images_ph: sample_images})
 
+            print(type(s_texture), type(s_m), type(s_shape))
+            print(s_texture, s_m, s_shape)
             warped_img, mask = warp_texture(s_texture, s_m, s_shape)
             print(type(mask), mask.shape)
 
