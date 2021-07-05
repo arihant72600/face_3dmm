@@ -432,10 +432,6 @@ class DCGAN(object):
                                self.rrotated_shape_base, self.G_texture_base_images, self.albedo_base, self.G_images_base_nc, self.G_albedo_base_images, self.G_shade_base_images, self.test_masks],
                               feed_dict={self.input_images_ph: sample_images})
 
-            print(type(s_test_mask))
-            print(s_test_mask.shape)
-            print(s_test_mask)
-
             save_img = True
             idx = 0
 
@@ -449,8 +445,8 @@ class DCGAN(object):
                 ##save_images(s_albedo_image, [-1, 1], '%s_pred_img_%02d_alb.png' % (output_path, idx))
                 # save_images(
                 #     s_shade_image, [-1, 1], '%s_pred_img_%02d_shade.png' % (output_path, idx))
-                save_images(
-                    s_test_mask, [-1, 1], '%s_pred_img_%02d_mask.png' % (output_path, idx), inverse=False)
+                mask_path = '%s_pred_img_%02d_mask.png' % (output_path, idx)
+                scipy.misc.imsave(mask_path, s_test_mask)
                 mask = (s_shade_image - sample_images) != 0
 
                 masked_shading = mask * s_shade_image
